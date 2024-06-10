@@ -12,9 +12,7 @@ if __name__ == "__main__":
   maxlen = 15
 
   for b in open(sys.argv[1], "rb").read():
-   #shellcode += "\\x" + b.encode("hex")
-   hex_val = hex(b)
-   shellcode += "\\x" + hex_val[2:]
+   shellcode += "\\x" + b.to_bytes(1, "big").hex()
    if ctr == maxlen:
     shellcode += "\" \n\""
     ctr = 0
@@ -29,8 +27,7 @@ if __name__ == "__main__":
   maxlen = 15
   
   for b in open(sys.argv[1], "rb").read():
-   #shellcode += "0x" + b.encode("hex") + ","
-   shellcode += hex(b) + ","
+   shellcode += "0x" + b.to_bytes(1, "big").hex() + ","
    if ctr == maxlen:
     shellcode += "\n"
     ctr = 0
