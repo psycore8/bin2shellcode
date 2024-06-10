@@ -1,16 +1,14 @@
 # Convert .bin to c# and c shellcode
 
-Usage:
+## Usage
 
 ```
-python2 bin2sc.py <file>.bin c|cs
+python3 bin2sc.py <file>.bin c|cs
 ```
 
-Credits :
-1.  @superkojiman for his c shellcode conversion.
-https://gist.github.com/superkojiman/11164279
+## Credits
 
-Trying to convert bin file that is generated from havoc C2
+Original source code written by [fanbyprinciple](https://github.com/fanbyprinciple/bin2shellcode)
 
 ![](./havoc.png)
 
