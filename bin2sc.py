@@ -19,6 +19,24 @@ if __name__ == "__main__":
    ctr += 1
   shellcode += "\""
   print(shellcode)
+ 
+ if sys.argv[2] == "casm":
+  # for inline c asm
+  shellcode = "\".byte "
+  ctr = 1
+  maxlen = 15
+
+  for b in open(sys.argv[1], "rb").read():
+   shellcode += "0x" + b.to_bytes(1, "big").hex()
+   if ctr != maxlen:
+    shellcode += ","
+   if ctr == maxlen:
+    shellcode += "\\n\\t\"\n\".byte "
+    ctr = 0
+   ctr += 1
+  shellcode = shellcode[:-1] + "\""
+  shellcode += "\n\"ret\\n\\t\""
+  print(shellcode)
 
  else:
   # for cs shellcode
