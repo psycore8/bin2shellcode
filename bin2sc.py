@@ -27,10 +27,12 @@ if __name__ == "__main__":
   maxlen = 15
   
   for b in open(sys.argv[1], "rb").read():
-   shellcode += "0x" + b.to_bytes(1, "big").hex() + ","
+   shellcode += "0x" + b.to_bytes(1, "big").hex()
+   if ctr != maxlen:
+    shellcode += ","
    if ctr == maxlen:
     shellcode += "\n"
     ctr = 0
    ctr += 1
-
+  shellcode = shellcode[:-1]
   print(shellcode)
