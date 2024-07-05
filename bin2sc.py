@@ -1,8 +1,14 @@
 #!/usr/bin/env python
 import sys
+print(" _     _       ____  ____   ____")
+print("| |__ (_)_ __ |___ \/ ___| / ___|")
+print("| '_ \| | '_ \  __) \___ \| |")
+print("| |_) | | | | |/ __/ ___) | |___")
+print("|_.__/|_|_| |_|_____|____/ \____|")
+print("\n\n")
 if __name__ == "__main__":
  if len(sys.argv) < 3:
-  print("usage: %s file.bin c|cs\n" % (sys.argv[0],))
+  print("usage: %s file.bin c|casm|cs\n" % (sys.argv[0],))
   sys.exit(0)
 
  if sys.argv[2] == "c":
@@ -37,8 +43,9 @@ if __name__ == "__main__":
   shellcode = shellcode[:-1] + "\""
   shellcode += "\n\"ret\\n\\t\""
   print(shellcode)
-
- else:
+ 
+ if sys.argv[2] == "cs":
+ #else:
   # for cs shellcode
   shellcode = ""
   ctr = 1
@@ -54,3 +61,5 @@ if __name__ == "__main__":
    ctr += 1
   shellcode = shellcode[:-1]
   print(shellcode)
+ else:
+  exit()
