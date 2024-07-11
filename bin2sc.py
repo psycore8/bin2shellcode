@@ -6,7 +6,7 @@ print("| |__ (_)_ __ |___ \/ ___| / ___|")
 print("| '_ \| | '_ \  __) \___ \| |")
 print("| |_) | | | | |/ __/ ___) | |___")
 print("|_.__/|_|_| |_|_____|____/ \____|")
-print(version)
+print(Version)
 print("\n\n")
 if __name__ == "__main__":
  if len(sys.argv) < 3:
